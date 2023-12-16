@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 
 const App = () => {
-  var date = new Date();
-  var currentTime = date.getHours()+ ":" +date.getMinutes()+ ":" +date.getSeconds();
-  const[time,setTime]=useState(currentTime);
-  const CurrTime = () =>{
-    setTime(currentTime);
+  let newTime = new Date().toLocaleTimeString();
+  const[time,setTime]=useState(newTime);
+  const UpdateTime = () =>{
+    newTime=new Date().toLocaleTimeString();
+    setTime(newTime);
+    console.log("clicked ", time);
   }
   return(
   <>
     <h1>{time}</h1>
-    <button onClick={CurrTime}>Get the time</button>
+    <button onClick={UpdateTime}>Get the time</button>
   </>
   );
 }
