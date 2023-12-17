@@ -7,42 +7,18 @@ const App = () => {
     email: "",
     phone: "",
   });
-  const{fName, lName,email,phone}=fullname;
+  const { fName, lName, email, phone } = fullname;
 
   const inputEvent = (event) => {
-    const{name, value}=event.target;
+    const { name, value } = event.target;
 
-    setFullName((prevVal) => {
-      if (name === "fName") {
-        return {
-          fName: value,
-          lName: prevVal.lName,
-          email: prevVal.email,
-          phone: prevVal.phone,
-        };
-      } else if (name === "lName") {
-        return {
-          fName: prevVal.fName,
-          lName: value,
-          email: prevVal.email,
-          phone: prevVal.phone,
-        };
-      } else if (name === "email") {
-        return {
-          fName: prevVal.fName,
-          lName: prevVal.lName,
-          email: value,
-          phone: prevVal.phone,
-        };
-      } else if (name === "phone") {
-        return {
-          fName: prevVal.fName,
-          lName: prevVal.lName,
-          email: prevVal.email,
-          phone: value,
-        };
-      }
-    });
+    // setFullName((prevVal) => {
+    //  return{
+    //   ...prevVal,
+    //   [name] : value
+    //  }
+    // });
+    setFullName({ ...fullname, [name]: value });
   };
 
   const OnSubmit = (event) => {
