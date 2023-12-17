@@ -5,12 +5,12 @@ const App = () => {
     fName: "",
     lName: "",
     email: "",
+    phone: "",
   });
-  const[fName, lName,email]=fullname;
+  const{fName, lName,email,phone}=fullname;
 
   const inputEvent = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
+    const{name, value}=event.target;
 
     setFullName((prevVal) => {
       if (name === "fName") {
@@ -18,18 +18,28 @@ const App = () => {
           fName: value,
           lName: prevVal.lName,
           email: prevVal.email,
+          phone: prevVal.phone,
         };
       } else if (name === "lName") {
         return {
           fName: prevVal.fName,
           lName: value,
           email: prevVal.email,
+          phone: prevVal.phone,
         };
       } else if (name === "email") {
         return {
           fName: prevVal.fName,
           lName: prevVal.lName,
           email: value,
+          phone: prevVal.phone,
+        };
+      } else if (name === "phone") {
+        return {
+          fName: prevVal.fName,
+          lName: prevVal.lName,
+          email: prevVal.email,
+          phone: value,
         };
       }
     });
@@ -37,6 +47,7 @@ const App = () => {
 
   const OnSubmit = (event) => {
     event.preventDefault(); //to prevent default behaviour of form
+    alert("Form submitted successfully");
   };
   return (
     <>
@@ -44,7 +55,8 @@ const App = () => {
         <h1>
           Hello {fName} {lName}
         </h1>
-        <p>{email}</p>
+        <h4>{email}</h4>
+        <h4>{phone}</h4>
         <input
           type="text"
           placeholder="Enter Your first Name"
@@ -60,9 +72,16 @@ const App = () => {
         />
         <br />
         <input
-          type="text"
+          type="email"
           placeholder="Enter your Email"
           name="email"
+          onChange={inputEvent}
+        />
+        <br />
+        <input
+          type="number"
+          placeholder="Enter your Phone Number"
+          name="phone"
           onChange={inputEvent}
         />
         <br />

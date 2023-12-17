@@ -4,7 +4,7 @@ const App = () => {
     color: "purple",
     msg: "Hi Praju",
   });
-  const [color,msg]=bg;
+  const {color,msg}=bg;
   const bgChange = () => {
     setBg(() => {
       return {
