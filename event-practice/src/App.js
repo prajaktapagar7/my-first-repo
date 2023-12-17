@@ -4,6 +4,7 @@ const App = () => {
     color: "purple",
     msg: "Hi Praju",
   });
+  const [color,msg]=bg;
   const bgChange = () => {
     setBg(() => {
       return {
@@ -22,13 +23,13 @@ const App = () => {
   };
   return (
     <>
-      <div style={{ backgroundColor: bg.color, textAlign: "center" }}>
+      <div style={{ backgroundColor: color, textAlign: "center" }}>
         <button
           style={{ fontSize: "larger" }}
           onClick={bgChange}
           onDoubleClick={bgBack}
         >
-          {bg.msg}
+          {msg}
         </button>
       </div>
     </>

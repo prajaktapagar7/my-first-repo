@@ -6,6 +6,7 @@ const App = () => {
     lName: "",
     email: "",
   });
+  const[fName, lName,email]=fullname;
 
   const inputEvent = (event) => {
     const name = event.target.name;
@@ -41,9 +42,9 @@ const App = () => {
     <>
       <form onSubmit={OnSubmit}>
         <h1>
-          Hello {fullname.fName} {fullname.lName}
+          Hello {fName} {lName}
         </h1>
-        <p>{fullname.email}</p>
+        <p>{email}</p>
         <input
           type="text"
           placeholder="Enter Your first Name"
